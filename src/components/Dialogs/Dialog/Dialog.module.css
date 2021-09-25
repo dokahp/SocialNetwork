@@ -1,0 +1,49 @@
+.separator {
+    border-bottom: 1px solid #DCE1E6;
+    width: 100%;
+}
+a {
+    text-decoration: none;
+}
+.dialog {
+    width: 100%;
+    height: 71px;
+    background: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.dialog:hover {
+    background: #F5F6F8;
+}
+.dialog_logo {
+    padding: 11px 14px 7px 0px;
+}
+.dialog_logo img {
+    border-radius: 50%;
+}
+.dialog_main {
+    padding: 10px 0;
+    width: 100%;
+    
+}
+.dialog_name {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 15px;
+    height: 19px;
+    width: 100%;
+    color: black;
+}
+.dialog_text {
+    color: #A5ACB4;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15px;
+}
+
+.dialog_date {
+    color: #B4BAC3;
+    font-size: 13px;
+    line-height: 15px;
+
+}

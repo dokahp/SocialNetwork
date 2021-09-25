@@ -1,0 +1,26 @@
+.header {
+    height: 42px;
+    background: #4A76A8;
+    padding-right: 0;
+}
+.header_person {
+    background: #416A9A;
+    height: 100%;
+    padding: 9px;
+
+
+}
+.header_person_name {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 12.5px;
+    line-height: 28px;
+    color: #fff;
+}
+.header_person_logo img {
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    margin: 0 12px;
+}

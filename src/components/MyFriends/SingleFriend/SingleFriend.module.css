@@ -1,0 +1,42 @@
+.wrapper {
+    padding: 0 20px;
+    background: #fff;
+    
+}
+
+.content {
+    padding: 12px 0;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #DCE1E6;
+}
+.logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 15px 0 0;
+}
+.userNameLink {
+    margin-bottom: 9px;
+}
+.userNameLink a {
+    color: #2a5885; 
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+.userNameLink:hover {
+    text-decoration: underline;
+}
+.userEduWork {
+    color: #656565;
+    margin-bottom: 9px;
+    font-size: 13px;
+}
+.userWriteButton a {
+    font-size: 13px;
+    text-decoration: none;
+    color: rgb(42, 88, 133);
+}
+.userWriteButton:hover {
+    text-decoration: underline;
+}
