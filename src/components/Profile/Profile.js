@@ -68,7 +68,7 @@ let Profile = (props) => {
             </div>
             <div className="row justify-content-end">
                     <div className={`${style.myPost} col-9`}>
-                        <MyPosts posts={props.posts} addPost={props.addPost} updateNewPostText={props.updateNewPostText} />
+                        <MyPosts posts={props.posts} newPostText={props.newPostText} dispatch={props.dispatch}/>
                     </div>
                 </div>
         </main>)

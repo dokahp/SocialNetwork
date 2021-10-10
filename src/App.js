@@ -5,26 +5,24 @@ import Header from './components/Header/Header';
 import Navigation from './components/Navigation/Navigation';
 import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import MyFriends from './components/MyFriends/MyFriends';
 
 
 let App = (props) => {
     return (
-        <BrowserRouter>
         <div className='container'>
             <div className="row">
                 <Header />
             </div>
             <div className="row">
                 <Navigation />
-                <Route render={() => <Profile posts={props.state.profilePage.posts} addPost={props.addPost} updateNewPostText={props.updateNewPostText} />} exact path='/' />
+                <Route render={() => <Profile posts={props.state.profilePage.posts} newPostText={props.state.profilePage.newPostText} dispatch={props.dispatch} />} exact path='/' />
                 <Route render={() => <Dialogs dialogs={props.state.dialogsPage.dialogs}/>} path="/dialogs" />
                 <Route render={() => <MyFriends allFriends={props.state.friendsPage.allFriends} />} path="/friends" />
             </div>  
             <footer></footer>
         </div>
-        </BrowserRouter>
     )
 };
 
