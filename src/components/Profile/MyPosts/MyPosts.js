@@ -7,14 +7,17 @@ let MyPosts = (props) => {
 
     let textArea = React.createRef();
     let addNewPost = () => {
-        
-        return props.addPost({text:textArea.current.value, like: 0})
+        return props.addPost()
+    }
+    let onPostChange = () => {
+        let text = textArea.current.value;
+        props.updateNewPostText(text)
     }
 
     return (
         <div>
             <div className={`${style.newPost} d-flex flex-column align-items-end`}>
-                <textarea placeholder="Что у Вас нового?" ref={textArea}></textarea>
+                <textarea placeholder="Что у Вас нового?" onChange={onPostChange} ref={textArea} value={props.newPostText}></textarea>
                 <button className={style.addPostButton} onClick={addNewPost}>Опубликовать</button>
             </div>
             {/* Добавляем посты на стену */}
