@@ -1,11 +1,14 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const MONTH = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
 let store = {
     _state: {
         profilePage: {
             "posts": [
-                { 'text': "Лучшие инвестиции - в себя!", 'like': '1000' },
-                { 'text': "Копирайтинг: как не съесть собаку. Создаем тексты, которые продают", 'like': '1' },
-                { 'text': "Создаем тексты, которые продают", 'like': '1' },
-                { 'text': "Проверка связи", 'like': '0' },
+                { id: '1', 'text': "Лучшие инвестиции - в себя!", 'like': '1000', date: "20 сентября 2021" },
+                { id: '2', 'text': "Копирайтинг: как не съесть собаку. Создаем тексты, которые продают", 'like': '1', date: "20 сентября 2021" },
+                { id: '3', 'text': "Создаем тексты, которые продают", 'like': '1', date: "20 сентября 2021" },
+                { id: '4', 'text': "Проверка связи", 'like': '0', date: "20 сентября 2021" },
             ],
             newPostText: '',
         },
@@ -42,8 +45,10 @@ let store = {
     },
     _addPost() {
         let newPost = {
+            id: Number(this._state.profilePage.posts.at(-1).id) + 1,
             text: this._state.profilePage.newPostText,
-            like: 0
+            like: '0',
+            date: this._getDate(),
         };
         this._state.profilePage.posts.unshift(newPost);
         this._state.profilePage.newPostText = '';
@@ -53,15 +58,21 @@ let store = {
         this._state.profilePage.newPostText = newText;
         this._callSubscriber(this._state);
     },
+    _getDate() {
+        let newDate = new Date();
+        return `${newDate.getDate()} ${MONTH[newDate.getMonth()]} ${newDate.getFullYear()}`
+    },
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             this._addPost()
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._updateNewPostText(action.newText)
         }
     }
 }
-
+export const addPostActionCreator = () => ({ type: ADD_POST });
+export const updateNewPostTextActionCreator = (text) =>
+    ({ type: UPDATE_NEW_POST_TEXT, newText: text });
 
 export default store;
 // window.store = store;
