@@ -1,0 +1,87 @@
+body {
+    overflow-y: hidden;
+}
+.chat_wrapper {
+    background: #fff;
+    border: 1px solid #DCE1E6;
+    border-radius: 4px;
+    min-height: 484px;
+    max-height: 90vh;
+    padding: 0;
+    
+}
+.chat_header {
+    padding-left: 16px;
+    padding-right: 50px;
+    border-bottom: 1px solid #DCE1E6;
+    margin-bottom: 10px;
+}
+.back_btn {
+    padding: 14px 20px 15px 36px;
+    background: url(data:image/svg+xml;charset=utf-8,%3Csvg%20height%3D%2216%22%20viewBox%3D%220%200%209%2016%22%20width%3D%229%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m8%2015.9c-.2%200-.4-.1-.6-.3l-7-7c-.3-.3-.3-.9%200-1.2l7-7c.3-.3.9-.3%201.2%200s.3.9%200%201.2l-6.4%206.4%206.4%206.4c.3.3.3.9%200%201.2-.2.2-.4.3-.6.3z%22%20fill%3D%22%23828a99%22%20opacity%3D%22.7%22%2F%3E%3C%2Fsvg%3E) 15px 16px no-repeat;
+}
+.back_btn:hover {
+    color: #6f7985;
+    text-decoration: none;
+}
+a {
+    color: #818c99;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 500;
+}
+.name {
+    color: #222222;
+    line-height: 17px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+}
+.online {
+    color: rgb(98, 109, 122);
+    font-size: 12px;
+    font-weight: 400px;
+    line-height: 17px;
+    text-align: center;
+}
+.avatar img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: inherit;
+}
+.messages_block {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-left: 40px;
+}
+.input_block {
+    background: #F9FAFB;
+    border-top: 1px solid #DCE1E6;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    padding: 14px 30px;
+}
+.textArea {
+    border: 1px solid #DCE1E6;
+    padding: 10px 13px;
+    min-height: 36px;
+    max-height: 200px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 17px;
+}
+.send_btn {
+    width: 52px;
+    height: 55px;
+    border: 0;
+    background: 0 0;
+    padding: 31px 28px;
+    cursor: pointer;
+    background: url(data:image/svg+xml;charset=utf-8,%3Csvg%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m4.7%2015.8c-.7%201.9-1.1%203.2-1.3%203.9-.6%202.4-1%202.9%201.1%201.8s12-6.7%2014.3-7.9c2.9-1.6%202.9-1.5-.2-3.2-2.3-1.4-12.2-6.8-14-7.9s-1.7-.6-1.2%201.8c.2.8.6%202.1%201.3%203.9.5%201.3%201.6%202.3%203%202.5l5.8%201.1c.1%200%20.1.1.1.1s0%20.1-.1.1l-5.8%201.1c-1.3.4-2.5%201.3-3%202.7z%22%20fill%3D%22%23828a99%22%2F%3E%3C%2Fsvg%3E) center no-repeat;
+    opacity: .7;
+}
+.send_btn:hover {
+    opacity: 1;
+}

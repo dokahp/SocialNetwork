@@ -5,7 +5,7 @@ import style from './Dialogs.module.css';
 
 let Dialogs = (props) => {
     let DialogItemsComponents = props.dialogs.map(el => {
-        return <Dialog logo={el.logo} name={el.name} text={el.text} date={el.date} id={el.id} />
+        return <Dialog id={el.id} logo={el.logo} name={el.name} text={el.text} date={el.date} profileId={el.profileId}  />
     });
     return (
         <main className="col-10 mt-3">

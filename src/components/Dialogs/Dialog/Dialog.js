@@ -5,7 +5,7 @@ import style from './Dialog.module.css';
 let Dialog = (props) => {
     return (
         <div className={style.separator}>
-            <NavLink to={'/dialogs/' + props.id}>
+            <NavLink to={'/dialogs/' + props.profileId}>
                 <div className={style.dialog}>
                     <div className="d-flex  align-items-center">
                         <div className={style.dialog_logo}>

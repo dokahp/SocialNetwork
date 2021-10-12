@@ -14,11 +14,17 @@ let store = {
         },
         dialogsPage: {
             "dialogs": [
-                { 'logo': "/img/Dialog/tanya.jpg", 'name': "Alesya Shulyakovskaya", 'text': "Привет", 'date': "9 июня", 'id': "96381471" },
-                { 'logo': "/img/Dialog/misha.jpg", 'name': "Михаил Одинцов", 'text': "Учу js", 'date': "8 июня", 'id': "962311471" },
-                { 'logo': "/img/Dialog/alina.jpg", 'name': "Алина Адамович", 'text': "Целую тебя", 'date': "8 июня", 'id': "962311471" },
-                { 'logo': "/img/Dialog/dima.jpg", 'name': "Дмитрий Русак", 'text': "Сайт опять не работает. Выдает ошибку SQL", 'date': "8 июня", 'id': "123565" }
-            ]
+                { id: 1, 'logo': "/img/Dialog/tanya.jpg", 'name': "Alesya Shulyakovskaya", 'text': "Привет", 'date': "9 июня", 'profileId': "96381471" },
+                { id: 2, 'logo': "/img/Dialog/misha.jpg", 'name': "Михаил Одинцов", 'text': "Учу js", 'date': "8 июня", 'profileId': "962311471" },
+                { id: 3, 'logo': "/img/Dialog/alina.jpg", 'name': "Алина Адамович", 'text': "Спокойной ночи", 'date': "8 июня", 'profileId': "145307652" },
+                { id: 4, 'logo': "/img/Dialog/dima.jpg", 'name': "Дмитрий Русак", 'text': "Сайт опять не работает. Выдает ошибку SQL", 'date': "8 июня", 'profileId': "123565" }
+            ],
+            messages: {
+                96381471: [
+                    {id: 1, message: 'Привет, давно не виделись'},
+                    {id: 2, message: 'Привет, давно не виделись'},
+                ]
+            }
         },
         friendsPage: {
             allFriends: [
