@@ -24,41 +24,7 @@ let Messages = (props) => {
                         </div>
 
                         <div className={`${style.messages_block} align-self-stretch`}>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
-                            <p>Message</p>
+                            
                         </div>
                         <div className={`${style.input_block} d-flex justify-content-center align-items-center`}>
                             <textarea placeholder="Напишите сообщение" className={style.textArea} />
