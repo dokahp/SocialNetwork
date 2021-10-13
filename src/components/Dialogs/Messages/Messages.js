@@ -1,6 +1,8 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import style from './Messages.module.css';
 import SingleMessage from './SingleMessage/SingleMessage';
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from "../../../redux/state";
 
 let Messages = (props) => {
     // Читаем адрес текущей страницы
@@ -12,7 +14,14 @@ let Messages = (props) => {
             message={el.message} date={el.date} />
     );
     let searchUser = props.dialog.dialogs.filter(el => el.profileId === href? el: '')
-    
+    let addNewMessage = () => {
+        return props.dispatch(addMessageActionCreator(href))
+    }
+    let onMessageChange = (e) => {
+        let message = e.target.value;
+        return props.dispatch(updateNewMessageTextActionCreator(message))
+    }
+
     return (
         <main className="col-10 mt-3 ">
             <div className='row justify-content-end'>
@@ -40,8 +49,8 @@ let Messages = (props) => {
                     {/* БЛОК СООБЩЕНИЙ */}
 
                     <div className={`${style.input_block} d-flex justify-content-end align-items-center`}>
-                        <textarea placeholder="Напишите сообщение" className={style.textArea} />
-                        <button className={style.send_btn}></button>
+                        <textarea onChange={onMessageChange} value={props.dialog.messages.newMessageText} placeholder="Напишите сообщение" className={style.textArea} />
+                        <button onClick={addNewMessage} className={style.send_btn}></button>
                     </div>
 
                 </div>

@@ -1,6 +1,8 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const MONTH = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
 let store = {
     _state: {
@@ -22,12 +24,11 @@ let store = {
             ],
             messages: {
                 '96381471': [
-                    {id: 1, 'logo': "/img/Dialog/tanya.jpg", name: "Alesya Shulyakovskaya" , message: 'Привет, давно не виделись', date: '30 апреля 2020 12:53'},
-                    {id: 2, 'logo': "/img/Dialog/tanya.jpg", name: "Alesya Shulyakovskaya" , message: 'Я скоро буду в Минске, можем встретиться', date: '30 апреля 2020 12:53'},
-                    {id: 3, 'logo': "/img/Dialog/vitaliy.jpg", name: "Виталий" , message: 'Я пока занят, учу программирование, может завтра?', date: '13 октября 2021 02:53'},
-                    
-                   
-                ]
+                    { id: 1, 'logo': "/img/Dialog/tanya.jpg", name: "Alesya Shulyakovskaya", message: 'Привет, давно не виделись', date: '30 апреля 2020 12:53' },
+                    { id: 2, 'logo': "/img/Dialog/tanya.jpg", name: "Alesya Shulyakovskaya", message: 'Я скоро буду в Минске, можем встретиться', date: '30 апреля 2020 12:53' },
+                    { id: 3, 'logo': "/img/Dialog/vitaliy.jpg", name: "Виталий", message: 'Я пока занят, учу программирование, может завтра?', date: '13 октября 2021 02:53' },
+                ],
+                newMessageText: '',
             }
         },
         friendsPage: {
@@ -41,7 +42,9 @@ let store = {
                 { 'id': 7, 'logo': 'img/MyFriends/dima.jpg', 'name': 'Дмитрий Русак', 'pageLink': 'id21214444', 'eduJob': 'не указан', 'writeLink': 'write21214444' },
                 { 'id': 8, 'logo': 'img/MyFriends/misha.jpg', 'name': 'Михаил Одинцов', 'pageLink': 'id31834394', 'eduJob': 'Aplana software', 'writeLink': 'write31834394' },
             ],
-
+        users: [
+            {'id': 1,}
+        ]
         }
     },
     getState() {
@@ -68,21 +71,51 @@ let store = {
         this._state.profilePage.newPostText = newText;
         this._callSubscriber(this._state);
     },
+    _addMessage(profileId) {
+        let newMessage = {
+            id: Number(this._state.dialogsPage.messages[profileId].at(-1).id) + 1,
+            logo: '/img/Dialog/vitaliy.jpg',
+            name: "Виталий",
+            message: this._state.dialogsPage.messages.newMessageText,
+            date: this._getFullDateWithTime()
+        }
+        this._state.dialogsPage.messages[profileId].push(newMessage);
+        this._state.dialogsPage.messages.newMessageText = '';
+        this._callSubscriber(this._state);
+    },
+    _updateNewMessageText(messageText) {
+        this._state.dialogsPage.messages.newMessageText = messageText;
+        this._callSubscriber(this._state);
+    },
     _getDate() {
         let newDate = new Date();
         return `${newDate.getDate()} ${MONTH[newDate.getMonth()]} ${newDate.getFullYear()}`
+    },
+    _getFullDateWithTime() {
+        let newDate = new Date();
+        return `${newDate.getDate()} 
+            ${MONTH[newDate.getMonth()]} 
+            ${newDate.getFullYear()} 
+            ${newDate.getHours()}:${newDate.getMinutes()}`
     },
     dispatch(action) {
         if (action.type === ADD_POST) {
             this._addPost()
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._updateNewPostText(action.newText)
+        } else if (action.type === ADD_MESSAGE) {
+            this._addMessage(action.profile)
+        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
+            this._updateNewMessageText(action.message)
         }
     }
 }
 export const addPostActionCreator = () => ({ type: ADD_POST });
 export const updateNewPostTextActionCreator = (text) =>
     ({ type: UPDATE_NEW_POST_TEXT, newText: text });
+export const addMessageActionCreator = (profile) => ({type: ADD_MESSAGE, profile: profile});
+export const updateNewMessageTextActionCreator = (message) => ({type: UPDATE_NEW_MESSAGE_TEXT, message: message})
+
 
 export default store;
 // window.store = store;
