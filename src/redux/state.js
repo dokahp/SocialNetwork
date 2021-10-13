@@ -20,9 +20,12 @@ let store = {
                 { id: 4, 'logo': "/img/Dialog/dima.jpg", 'name': "Дмитрий Русак", 'text': "Сайт опять не работает. Выдает ошибку SQL", 'date': "8 июня", 'profileId': "123565" }
             ],
             messages: {
-                96381471: [
-                    {id: 1, message: 'Привет, давно не виделись'},
-                    {id: 2, message: 'Привет, давно не виделись'},
+                '96381471': [
+                    {id: 1, 'logo': "/img/Dialog/tanya.jpg", name: "Alesya Shulyakovskaya" , message: 'Привет, давно не виделись', date: '30 апреля 2020 12:53'},
+                    {id: 2, 'logo': "/img/Dialog/tanya.jpg", name: "Alesya Shulyakovskaya" , message: 'Я скоро буду в Минске, можем встретиться', date: '30 апреля 2020 12:53'},
+                    {id: 3, 'logo': "/img/Dialog/vitaliy.jpg", name: "Виталий" , message: 'Я пока занят, учу программирование, может завтра?', date: '13 октября 2021 02:53'},
+                    
+                   
                 ]
             }
         },

@@ -4,7 +4,7 @@ import style from './Dialogs.module.css';
 
 
 let Dialogs = (props) => {
-    let DialogItemsComponents = props.dialogs.map(el => {
+    let DialogItemsComponents = props.dialogs.dialogs.map(el => {
         return <Dialog id={el.id} logo={el.logo} name={el.name} text={el.text} date={el.date} profileId={el.profileId}  />
     });
     return (

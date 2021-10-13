@@ -18,9 +18,9 @@ let App = (props) => {
             <div className="row">
                 <Navigation />
                 <Route render={() => <Profile posts={props.state.profilePage.posts} newPostText={props.state.profilePage.newPostText} dispatch={props.dispatch} />} exact path='/' />
-                <Route render={() => <Dialogs dialogs={props.state.dialogsPage.dialogs} />} exact path="/dialogs" />
+                <Route render={() => <Dialogs dialogs={props.state.dialogsPage} />} exact path="/dialogs" />
                 <Route render={() => <MyFriends allFriends={props.state.friendsPage.allFriends} />} path="/friends" />
-                <Route render={() => <Messages />} exact path="/dialogs/96381471"/>
+                <Route render={() => <Messages dialog={props.state.dialogsPage}/>} exact path="/dialogs/96381471"/>
             </div>
             <footer></footer>
         </div>
