@@ -8,10 +8,10 @@ let Messages = (props) => {
     let href = String(window.location.href).split('/').at(-1)
     let allMessages = props.dialog.messages[href].map(el => 
         <SingleMessage
-            id={el.id} logo={el.logo} name={el.name.split(' ').at(0)}
+            key={el.id} logo={el.logo} name={el.name.split(' ').at(0)}
             message={el.message} date={el.date} />
     );
-    let searchUser = props.dialog.dialogs.filter(el => el.profileId == href? el: '')
+    let searchUser = props.dialog.dialogs.filter(el => el.profileId === href? el: '')
     
     return (
         <main className="col-10 mt-3 ">
@@ -21,7 +21,6 @@ let Messages = (props) => {
                     <div className={`${style.chat_header} d-flex justify-content-between align-items-center`}>
                         <NavLink to="/dialogs">
                             <div className={`${style.back_btn} d-flex`}>
-                                <i class={style.arrow_left}></i>
                                 Назад
                             </div>
                         </NavLink>

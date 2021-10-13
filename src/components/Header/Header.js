@@ -11,7 +11,7 @@ let Header = () => {
                 <div className={style.header_person_logo}>
                     <img src="img/headerLogo.jpg" alt="person_logo" className="img-fluid" />
                 </div>
-                <img src="img/Vector.png" className="img-fluid"/>
+                <img src="img/Vector.png" className="img-fluid" alt="" />
             </div>
         </header>)
 }

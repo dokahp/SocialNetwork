@@ -5,6 +5,7 @@ import SingleFriend from './SingleFriend/SingleFriend';
 
 let MyFriends = (props) => {
     let singleFriend = props.allFriends.map(el => <SingleFriend
+        key={el.id}
         logo={el.logo}
         name={el.name}
         pageLink={el.pageLink}

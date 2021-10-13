@@ -9,7 +9,7 @@ let Dialog = (props) => {
                 <div className={style.dialog}>
                     <div className="d-flex  align-items-center">
                         <div className={style.dialog_logo}>
-                            <img src={`${props.logo}`} />
+                            <img src={`${props.logo}`} alt="person logo" />
                         </div>
                         <div className={`${style.dialog_main} d-flex justify-content-between`}>
                             <div>

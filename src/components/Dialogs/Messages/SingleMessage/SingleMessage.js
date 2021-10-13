@@ -3,9 +3,9 @@ import style from './SingleMessage.module.css';
 
 let SingleMessage = (props) => {
     return (
-            <div className={`${style.wrapper} ${props.name == 'Виталий'?'justify-content-end':''}`}>
+            <div className={`${style.wrapper} ${props.name === 'Виталий'?'justify-content-end':''}`}>
                 <div className={style.img}>
-                    <img src={props.logo} alt="photo" />
+                    <img src={props.logo} alt="personalphoto" />
                 </div>
                 <div className={style.sender_text}>
                     <div className={style.header_message_wrapper}>
