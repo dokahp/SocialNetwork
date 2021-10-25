@@ -1,13 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useLocation } from 'react-router-dom';
 import style from './Messages.module.css';
 import SingleMessage from './SingleMessage/SingleMessage';
 import { addMessageActionCreator, updateNewMessageTextActionCreator } from "../../../redux/state";
 
 let Messages = (props) => {
     // Читаем адрес текущей страницы
-
-    let href = String(window.location.href).split('/').at(-1)
+    let href = useLocation().pathname.split('/').at(-1) // получаем номер id 9482324
     let allMessages = props.dialog.messages[href].map(el => 
         <SingleMessage
             key={el.id} logo={el.logo} name={el.name.split(' ').at(0)}
