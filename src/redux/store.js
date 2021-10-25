@@ -1,8 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const MONTH = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+import dialogsReducer from "./dialogs-reducer";
+import profileReducer from "./profile-reducer";
+
 
 let store = {
     _state: {
@@ -41,10 +39,7 @@ let store = {
                 { 'id': 6, 'logo': 'img/MyFriends/andrey.jpg', 'name': 'Андрей Томский', 'pageLink': 'id32661050', 'eduJob': '', 'writeLink': 'write32661050' },
                 { 'id': 7, 'logo': 'img/MyFriends/dima.jpg', 'name': 'Дмитрий Русак', 'pageLink': 'id21214444', 'eduJob': 'не указан', 'writeLink': 'write21214444' },
                 { 'id': 8, 'logo': 'img/MyFriends/misha.jpg', 'name': 'Михаил Одинцов', 'pageLink': 'id31834394', 'eduJob': 'Aplana software', 'writeLink': 'write31834394' },
-            ],
-        users: [
-            {'id': 1,}
-        ]
+            ]
         }
     },
     getState() {
@@ -56,66 +51,13 @@ let store = {
     _callSubscriber() {
         console.log('State changed');
     },
-    _addPost() {
-        let newPost = {
-            id: Number(this._state.profilePage.posts.at(-1).id) + 1,
-            text: this._state.profilePage.newPostText,
-            like: '0',
-            date: this._getDate(),
-        };
-        this._state.profilePage.posts.unshift(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
-    },
-    _updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    },
-    _addMessage(profileId) {
-        let newMessage = {
-            id: Number(this._state.dialogsPage.messages[profileId].at(-1).id) + 1,
-            logo: '/img/Dialog/vitaliy.jpg',
-            name: "Виталий",
-            message: this._state.dialogsPage.messages.newMessageText,
-            date: this._getFullDateWithTime()
-        }
-        this._state.dialogsPage.messages[profileId].push(newMessage);
-        this._state.dialogsPage.messages.newMessageText = '';
-        this._callSubscriber(this._state);
-    },
-    _updateNewMessageText(messageText) {
-        this._state.dialogsPage.messages.newMessageText = messageText;
-        this._callSubscriber(this._state);
-    },
-    _getDate() {
-        let newDate = new Date();
-        return `${newDate.getDate()} ${MONTH[newDate.getMonth()]} ${newDate.getFullYear()}`
-    },
-    _getFullDateWithTime() {
-        let newDate = new Date();
-        return `${newDate.getDate()} 
-            ${MONTH[newDate.getMonth()]} 
-            ${newDate.getFullYear()} 
-            ${newDate.getHours()}:${newDate.getMinutes()}`
-    },
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            this._addPost()
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._updateNewPostText(action.newText)
-        } else if (action.type === ADD_MESSAGE) {
-            this._addMessage(action.profile)
-        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._updateNewMessageText(action.message)
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
+        this._callSubscriber(this._state)
     }
 }
-export const addPostActionCreator = () => ({ type: ADD_POST });
-export const updateNewPostTextActionCreator = (text) =>
-    ({ type: UPDATE_NEW_POST_TEXT, newText: text });
-export const addMessageActionCreator = (profile) => ({type: ADD_MESSAGE, profile: profile});
-export const updateNewMessageTextActionCreator = (message) => ({type: UPDATE_NEW_MESSAGE_TEXT, message: message})
+
 
 
 export default store;
-// window.store = store;

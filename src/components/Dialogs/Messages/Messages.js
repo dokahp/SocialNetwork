@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink,useLocation } from 'react-router-dom';
 import style from './Messages.module.css';
 import SingleMessage from './SingleMessage/SingleMessage';
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from "../../../redux/state";
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from "../../../redux/dialogs-reducer";
 
 let Messages = (props) => {
     // Читаем адрес текущей страницы
