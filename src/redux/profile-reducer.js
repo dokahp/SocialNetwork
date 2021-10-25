@@ -2,6 +2,16 @@ const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const MONTH = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
 
+//Начальное состояние стейта
+const initialState = {
+    "posts": [
+        { id: '1', 'text': "Лучшие инвестиции - в себя!", 'like': '1000', date: "20 сентября 2021" },
+        { id: '2', 'text': "Копирайтинг: как не съесть собаку. Создаем тексты, которые продают", 'like': '1', date: "20 сентября 2021" },
+        { id: '3', 'text': "Создаем тексты, которые продают", 'like': '1', date: "20 сентября 2021" },
+        { id: '4', 'text': "Проверка связи", 'like': '0', date: "20 сентября 2021" },
+    ],
+    newPostText: '',
+}
 
 let addPost = (state) => {
     let newPost = {
@@ -22,7 +32,7 @@ let updateNewPostText = (state, newText) => {
 }
 
 
-const profileReducer = (state, action) => {
+const profileReducer = (state=initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             addPost(state)
