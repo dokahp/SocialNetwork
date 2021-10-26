@@ -20,7 +20,6 @@ const initialState = {
 }
 
 let addMessage = (state, profileId) => {
-    debugger;
     let newMessage = {
         id: Number(state.messages[profileId].at(-1).id) + 1,
         logo: '/img/Dialog/vitaliy.jpg',
@@ -46,7 +45,6 @@ let updateNewMessageText = (state, messageText) => {
 const dialogsReducer = (state=initialState, action) => {
     switch(action.type) {
         case ADD_MESSAGE:
-            debugger
             addMessage(state, action.profile)
             return state;
         case UPDATE_NEW_MESSAGE_TEXT:
