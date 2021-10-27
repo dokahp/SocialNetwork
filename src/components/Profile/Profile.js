@@ -1,6 +1,6 @@
 import MyPostsContainer from './MyPosts/MyPostsContainer';
-import ProfileInfo from './ProfileInfo/ProfileInfo';
 import style from './Profile.module.css';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 
 
@@ -10,7 +10,7 @@ let Profile = (props) => {
                 <ProfileInfo />
             <div className="row justify-content-end">
                     <div className={`${style.myPost} col-9`}>
-                        <MyPostsContainer posts={props.posts} newPostText={props.newPostText} dispatch={props.dispatch}/>
+                        <MyPostsContainer />
                     </div>
                 </div>
         </main>)

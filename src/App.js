@@ -4,10 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header/Header';
 import Navigation from './components/Navigation/Navigation';
 import Profile from './components/Profile/Profile';
-import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import { Route } from 'react-router-dom';
-import MyFriends from './components/MyFriends/MyFriends';
-import Messages from './components/Dialogs/Messages/Messages'
+import MyFriendsContainer from './components/MyFriends/MyFriendsContainer';
+import MessagesContainer from './components/Dialogs/Messages/MessagesContainer';
 
 let App = (props) => {
     return (
@@ -17,10 +17,10 @@ let App = (props) => {
             </div>
             <div className="row">
                 <Navigation />
-                <Route render={() => <Profile posts={props.state.profilePage.posts} newPostText={props.state.profilePage.newPostText} dispatch={props.dispatch} />} exact path='/' />
-                <Route render={() => <Dialogs dialogs={props.state.dialogsPage} />} exact path="/dialogs" />
-                <Route render={() => <MyFriends allFriends={props.state.friendsPage.allFriends} />} path="/friends" />
-                <Route render={() => <Messages dialog={props.state.dialogsPage} dispatch={props.dispatch} />} exact path="/dialogs/96381471"/>
+                <Route render={() => <Profile/>} exact path='/' />
+                <Route render={() => <DialogsContainer />} exact path="/dialogs" />
+                <Route render={() => <MyFriendsContainer />} path="/friends" />
+                <Route render={() => <MessagesContainer/>} exact path="/dialogs/96381471"/>
             </div>
             <footer></footer>
         </div>

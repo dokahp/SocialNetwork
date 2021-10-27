@@ -4,14 +4,13 @@ import style from './Dialogs.module.css';
 
 
 let Dialogs = (props) => {
-    let DialogItemsComponents = props.dialogs.dialogs.map(el => {
+    let DialogItemsComponents = props.dialogsPage.dialogs.map(el => {
         return <Dialog key={el.id} logo={el.logo} name={el.name} text={el.text} date={el.date} profileId={el.profileId}  />
     });
     return (
         <main className="col-10 mt-3">
             <div className='row justify-content-end'>
                 <div className={`${style.dialogs_wrapper} col-12`}>
-
                     {DialogItemsComponents}
                 </div>
             </div>

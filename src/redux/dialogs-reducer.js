@@ -43,13 +43,14 @@ let updateNewMessageText = (state, messageText) => {
 }
 
 const dialogsReducer = (state=initialState, action) => {
+    let newState = JSON.parse(JSON.stringify(state))
     switch(action.type) {
         case ADD_MESSAGE:
-            addMessage(state, action.profile)
-            return state;
+            addMessage(newState, action.profile)
+            return newState;
         case UPDATE_NEW_MESSAGE_TEXT:
-            updateNewMessageText(state, action.message)
-            return state
+            updateNewMessageText(newState, action.message)
+            return newState
         default:
             return state;
 

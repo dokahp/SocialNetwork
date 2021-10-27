@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink,useLocation } from 'react-router-dom';
 import style from './Messages.module.css';
 import SingleMessage from './SingleMessage/SingleMessage';
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from "../../../redux/dialogs-reducer";
 
 let Messages = (props) => {
     // Читаем адрес текущей страницы
@@ -14,11 +13,11 @@ let Messages = (props) => {
     );
     let searchUser = props.dialog.dialogs.filter(el => el.profileId === href? el: '')
     let addNewMessage = () => {
-        return props.dispatch(addMessageActionCreator(href))
+        return props.handleAddMessage(href)
     }
     let onMessageChange = (e) => {
         let message = e.target.value;
-        return props.dispatch(updateNewMessageTextActionCreator(message))
+        return props.handleOnMessageChange(message)
     }
 
     return (
@@ -59,4 +58,4 @@ let Messages = (props) => {
     )
 };
 
-export default Messages
+export default Messages;
