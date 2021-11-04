@@ -42,7 +42,7 @@ let updateNewMessageText = (state, messageText) => {
     state.messages.newMessageText = messageText;
 }
 
-const dialogsReducer = (state=initialState, action) => {
+const messagesReducer = (state=initialState, action) => {
     let newState = JSON.parse(JSON.stringify(state))
     switch(action.type) {
         case ADD_MESSAGE:
@@ -61,4 +61,4 @@ export const addMessageActionCreator = (profile) => ({type: ADD_MESSAGE, profile
 export const updateNewMessageTextActionCreator = (message) => ({type: UPDATE_NEW_MESSAGE_TEXT, message: message})
 
 
-export default dialogsReducer;
+export default messagesReducer;

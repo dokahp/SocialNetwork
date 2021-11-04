@@ -1,0 +1,7 @@
+
+let SingleFriendWidget = (props) => {
+    return (
+        <> 
+        </>
+    )
+}

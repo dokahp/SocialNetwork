@@ -12,7 +12,7 @@ const initialState = {
     ],
     newPostText: '',
 }
-
+//переписать добавление лайков. Добавлять id того кто лайкнул и считать количество
 let addPost = (state) => {
     let newPost = {
         id: Number(state.posts.at(-1).id) + 1,
