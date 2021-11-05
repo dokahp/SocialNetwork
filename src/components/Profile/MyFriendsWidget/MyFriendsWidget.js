@@ -3,7 +3,7 @@ import style from './MyFriendsWidget.module.css'
 
 let MyFriendsWidget = (props) => {
     return (
-        <div className={`${style.wrapper} col-3 mt-3`}>
+        <div className={`${style.wrapper} mt-3`}>
             <div className={style.header}>
                 <NavLink to="/friends">
                     <span className={style.headerLabel}>Друзья</span>
@@ -11,7 +11,7 @@ let MyFriendsWidget = (props) => {
                 </NavLink>
             </div>
             <div className="d-flex justify-content-between align-items-center">
-
+                
             </div>
         </div>
 

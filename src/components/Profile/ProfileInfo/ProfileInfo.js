@@ -1,15 +1,16 @@
 import { NavLink } from 'react-router-dom';
 import style from './ProfileInfo.module.css';
+import {useState} from 'react';
 
 let ProfileInfo = (props) => {
+    const [additionalInformation, setAdditionalInformation] = useState(false)
+    const changeCondition = () => setAdditionalInformation(value => !value)
     return (
-        <div className='row justify-content-end'>
-            <div className={`${style.profile_logo} col-3 d-flex flex-column`}>
-                <img src='img/Profile/profileImg.jpg' alt="profile" />
-                <NavLink to="#">Редактировать</NavLink>
-            </div>
+        // <div className='row justify-content-end d-flex flex-wrap'>
+        <>
             
-            <div className={`${style.profile_aboutMe} col-9 ms-3`}>
+            {/* col-9 ms-3 */}
+            <div className={`${style.profile_aboutMe} `}>
                 <div className={`${style.separator} d-flex justify-content-between`}>
                     <h1>Виталий Дреко</h1>
                     <div className={style.profile_aboutMe_online}>Online</div>
@@ -26,11 +27,17 @@ let ProfileInfo = (props) => {
                     <div className={style.profile_info_item}>Образование:</div>
                     <div className={style.profile_info_data}>БГЭУ</div>
                 </div>
-                <div className={`${style.profile_moreInfo}`}>
-                    <NavLink to="#" className="d-flex justify-content-center align-items-center">
-                        Показать подробную информацию
-                    </NavLink>
+                <div></div>
+                <div onClick={changeCondition} className={`${style.profile_moreInfo}`}>
+                    <div  className="d-flex justify-content-center align-items-center">
+                        {additionalInformation?'Скрыть допольнительную информацию':'Показать подробную информацию'}
+                    </div>
                 </div>
+                {additionalInformation?
+                <div>LOREEEEEEEEEEEMMMMMMMMMM 
+                    LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM 
+                </div>
+                : null}
                 <div className={style.separator}></div>
                 <ul className={`${style.counts_module} d-flex justify-content-around`}>
                     <li>
@@ -65,7 +72,8 @@ let ProfileInfo = (props) => {
                     </li>
                 </ul>
             </div>
-        </div>
+        {/* </div> */}
+        </>
     )
 }
 

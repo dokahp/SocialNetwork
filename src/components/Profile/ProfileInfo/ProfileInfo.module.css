@@ -8,6 +8,8 @@
     padding: 15px;
     border-radius: 4px;
     max-width: 230px;
+    /* Захардкодил ВЫСОТУ. Нужно исправить */
+    max-height: 270px; 
 }
 .profile_logo img {
     height:  100%;
@@ -67,7 +69,8 @@
     margin: 10px 0 12px 0;
     
 }
-.profile_moreInfo a {
+.profile_moreInfo div {
+    cursor: pointer;
     color: #2A5885;
     font-size: 13px;
     text-decoration: none;
@@ -76,7 +79,7 @@
     height: 100%;
     border-radius: 4px;
 }
-.profile_moreInfo a:hover {
+.profile_moreInfo div:hover {
     background-color: #f0f2f5;
 }
 .counts_module li {
