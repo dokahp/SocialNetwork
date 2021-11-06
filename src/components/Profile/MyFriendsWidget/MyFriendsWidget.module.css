@@ -5,9 +5,18 @@
     font-size: 13px;
     /* max-width: 230px; */
 }
+.header {
+    line-height: 30px;
+}
 .headerLabel {
     color: #000;
 }
 .friendsCount {
     color: #939393;
+}
+.allFriends{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 70px);
+    grid-gap: 0;
+    justify-content: space-between;
 }

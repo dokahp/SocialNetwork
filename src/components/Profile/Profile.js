@@ -3,6 +3,7 @@ import MyPostsContainer from './MyPosts/MyPostsContainer';
 import style from './Profile.module.css';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import { NavLink } from 'react-router-dom';
+import store from '../../redux/redux-store';
 
 
 
@@ -15,16 +16,14 @@ let Profile = (props) => {
                         <img src='img/Profile/profileImg.jpg' alt="profile" />
                         <NavLink to="#">Редактировать</NavLink>
                     </div>
-                    <MyFriendsWidget />
+                    <MyFriendsWidget friends={store.getState().friendsPage.allFriends} />
                 </div>
                 <div className={`col-9 ${style.nopadding}`} >
-                <div className={`${style.myPost}`}>
-                    <ProfileInfo />
-                    <MyPostsContainer />
+                    <div className={`${style.myPost}`}>
+                        <ProfileInfo />
+                        <MyPostsContainer />
+                    </div>
                 </div>
-                </div>
-                
-                {/* </div> */}
             </div>
         </main>)
 };
