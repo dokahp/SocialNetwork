@@ -3,7 +3,7 @@ const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 const MONTH = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
 
 const initialState = {
-    "dialogs": [
+    dialogs: [
         { id: 1, 'logo': "/img/Dialog/tanya.jpg", 'name': "Alesya Shulyakovskaya", 'text': "Привет", 'date': "9 июня", 'profileId': "96381471" },
         { id: 2, 'logo': "/img/Dialog/misha.jpg", 'name': "Михаил Одинцов", 'text': "Учу js", 'date': "8 июня", 'profileId': "962311471" },
         { id: 3, 'logo': "/img/Dialog/alina.jpg", 'name': "Алина Адамович", 'text': "Спокойной ночи", 'date': "8 июня", 'profileId': "145307652" },
@@ -28,6 +28,14 @@ let addMessage = (state, profileId) => {
         date: getFullDateWithTime()
     }
     state.messages[profileId].push(newMessage);
+    // Изменение последнего сообщения и его даты на странице диалогов
+    state.dialogs = state.dialogs.map((el) => {
+        if (el.profileId === profileId) {
+            return { ...el, 'text': state.messages.newMessageText, 'date': `${new Date().getDate()} ${MONTH[new Date().getMonth()]}` }
+        }
+        return el
+    })
+
     state.messages.newMessageText = '';
 }
 
@@ -42,23 +50,22 @@ let updateNewMessageText = (state, messageText) => {
     state.messages.newMessageText = messageText;
 }
 
-const messagesReducer = (state=initialState, action) => {
-    let newState = JSON.parse(JSON.stringify(state))
-    switch(action.type) {
+const messagesReducer = (state = initialState, action) => {
+    switch (action.type) {
         case ADD_MESSAGE:
-            addMessage(newState, action.profile)
-            return newState;
+            addMessage(state, action.profileId)
+            return JSON.parse(JSON.stringify(state));
         case UPDATE_NEW_MESSAGE_TEXT:
-            updateNewMessageText(newState, action.message)
-            return newState
+            updateNewMessageText(state, action.message)
+            return JSON.parse(JSON.stringify(state));
         default:
             return state;
 
     }
 }
 
-export const addMessageActionCreator = (profile) => ({type: ADD_MESSAGE, profile: profile});
-export const updateNewMessageTextActionCreator = (message) => ({type: UPDATE_NEW_MESSAGE_TEXT, message: message})
+export const addMessageActionCreator = (profileId) => ({ type: ADD_MESSAGE, profileId: profileId });
+export const updateNewMessageTextActionCreator = (message) => ({ type: UPDATE_NEW_MESSAGE_TEXT, message: message })
 
 
 export default messagesReducer;
