@@ -2,7 +2,6 @@
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    /* font-size: 13px; */
     line-height: 27px;
     color: #2A5885;
     margin: 0px 7px;
@@ -16,6 +15,10 @@ ul {
 }
 li {
     height: 28px;
+    border-radius: 4px;
+}
+li:hover {
+    background: rgba(174, 183,194, 0.12);
 }
 li img {
     margin-right: 7px;
