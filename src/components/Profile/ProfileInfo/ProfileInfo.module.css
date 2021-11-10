@@ -124,6 +124,7 @@
     background: #fff;
     color: rgb(129, 140, 153);
     font-size: 13px;
+    cursor: pointer;
 }
 .additionalInfo_header a:hover {
     text-decoration: underline;

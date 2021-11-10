@@ -6,10 +6,10 @@ let ProfileInfo = (props) => {
     const [additionalInformation, setAdditionalInformation] = useState(false)
     const changeCondition = () => setAdditionalInformation(value => !value)
     const [editBtnVisability, setEditBtnVisability] = useState({
-        main:false,
-        contact:false,
-        lifePosition: false,
-        personalInformation: false
+        main: 'none',
+        contact: 'none',
+        lifePosition: 'none',
+        personalInformation: 'none'
     })
 
     return (
@@ -43,11 +43,11 @@ let ProfileInfo = (props) => {
                     <div>
                         {/* Подробная информация */}
                         {/* Основная информация */}
-                        <div onMouseMove={(e) =>setEditBtnVisability({...editBtnVisability, main:true})}
-                        onMouseOut={(e) => setEditBtnVisability({...editBtnVisability, main:false})} className={style.additionalInfo_block}>
+                        <div onMouseOver={(e) => setEditBtnVisability({ ...editBtnVisability, main: 'block' })}
+                            onMouseOut={(e) => setEditBtnVisability({ ...editBtnVisability, main: 'none' })} className={style.additionalInfo_block}>
                             <div className={style.additionalInfo_header}>
                                 <span>Основная информация</span>
-                                {editBtnVisability.main?<NavLink to="/edit">Редактировать</NavLink>:null}
+                                <NavLink to="/edit" style={{ display: editBtnVisability.main }} >Редактировать</NavLink>
                             </div>
                             <div className={style.profile_info_row}>
                                 <div className={style.profile_info_item}>День Рождения:</div>
@@ -60,11 +60,11 @@ let ProfileInfo = (props) => {
                         </div>
                         {/* Окончание основной информации */}
                         {/* Контактная информация */}
-                        <div onMouseMove={(e) =>setEditBtnVisability({...editBtnVisability, contact:true})}
-                        onMouseOut={(e) => setEditBtnVisability({...editBtnVisability, contact:false})} className={style.additionalInfo_block}>
+                        <div onMouseMove={(e) => setEditBtnVisability({ ...editBtnVisability, contact: 'block' })}
+                            onMouseOut={(e) => setEditBtnVisability({ ...editBtnVisability, contact: 'none' })} className={style.additionalInfo_block}>
                             <div className={style.additionalInfo_header}>
                                 <span>Контактная информация</span>
-                                {editBtnVisability.contact?<NavLink to="/edit">Редактировать</NavLink>:null}
+                                <NavLink to="/edit" style={{ display: editBtnVisability.contact }}>Редактировать</NavLink>
                             </div>
                             <div className={style.profile_info_row}>
                                 <div className={style.profile_info_item}>День Рождения:</div>
@@ -77,11 +77,11 @@ let ProfileInfo = (props) => {
                         </div>
                         {/* Окончание контактной информации */}
                         {/* Жизненная позиция */}
-                        <div onMouseMove={(e) =>setEditBtnVisability({...editBtnVisability, lifePosition:true})}
-                        onMouseOut={(e) => setEditBtnVisability({...editBtnVisability, lifePosition:false})} className={style.additionalInfo_block}>
+                        <div onMouseMove={(e) => setEditBtnVisability({ ...editBtnVisability, lifePosition: 'block' })}
+                            onMouseOut={(e) => setEditBtnVisability({ ...editBtnVisability, lifePosition: 'none' })} className={style.additionalInfo_block}>
                             <div className={style.additionalInfo_header}>
                                 <span>Жизненная позиция</span>
-                                {editBtnVisability.lifePosition?<NavLink to="/edit">Редактировать</NavLink>:null}
+                                <NavLink to="/edit" style={{ display: editBtnVisability.lifePosition }}>Редактировать</NavLink>
                             </div>
                             <div className={style.profile_info_row}>
                                 <div className={style.profile_info_item}>День Рождения:</div>
@@ -94,11 +94,11 @@ let ProfileInfo = (props) => {
                         </div>
                         {/* Окончание жизненной позиции */}
                         {/* Личная информация */}
-                        <div onMouseMove={(e) =>setEditBtnVisability({...editBtnVisability, personalInformation:true})}
-                        onMouseOut={(e) => setEditBtnVisability({...editBtnVisability, personalInformation:false})} className={style.additionalInfo_block}>
+                        <div onMouseMove={(e) => setEditBtnVisability({ ...editBtnVisability, personalInformation: 'block' })}
+                            onMouseOut={(e) => setEditBtnVisability({ ...editBtnVisability, personalInformation: 'none' })} className={style.additionalInfo_block}>
                             <div className={style.additionalInfo_header}>
                                 <span>Личная информация</span>
-                                {editBtnVisability.personalInformation?<NavLink to="/edit">Редактировать</NavLink>:null}
+                                <NavLink to="/edit" style={{ display: editBtnVisability.personalInformation }}>Редактировать</NavLink>
                             </div>
                             <div className={style.profile_info_row}>
                                 <div className={style.profile_info_item}>День Рождения:</div>
