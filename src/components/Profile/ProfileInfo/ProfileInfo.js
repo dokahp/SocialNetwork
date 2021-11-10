@@ -1,43 +1,117 @@
 import { NavLink } from 'react-router-dom';
 import style from './ProfileInfo.module.css';
-import {useState} from 'react';
+import { useState } from 'react';
 
 let ProfileInfo = (props) => {
     const [additionalInformation, setAdditionalInformation] = useState(false)
     const changeCondition = () => setAdditionalInformation(value => !value)
+    const [editBtnVisability, setEditBtnVisability] = useState({
+        main:false,
+        contact:false,
+        lifePosition: false,
+        personalInformation: false
+    })
+
     return (
-        // <div className='row justify-content-end d-flex flex-wrap'>
         <>
-            
-            {/* col-9 ms-3 */}
-            <div className={`${style.profile_aboutMe} `}>
+            <div className={style.profile_aboutMe}>
                 <div className={`${style.separator} d-flex justify-content-between`}>
                     <h1>Виталий Дреко</h1>
                     <div className={style.profile_aboutMe_online}>Online</div>
                 </div>
-                <div className={`${style.profile_info_row} d-flex`}>
+                <div className={style.profile_info_row}>
                     <div className={style.profile_info_item}>День Рождения:</div>
                     <div className={style.profile_info_data}>8 июня</div>
                 </div>
-                <div className={`${style.profile_info_row} d-flex`}>
+                <div className={style.profile_info_row}>
                     <div className={style.profile_info_item}>Город:</div>
                     <div className={style.profile_info_data}>Минск</div>
                 </div>
-                <div className={`${style.profile_info_row} d-flex`}>
+                <div className={style.profile_info_row}>
                     <div className={style.profile_info_item}>Образование:</div>
                     <div className={style.profile_info_data}>БГЭУ</div>
                 </div>
                 <div></div>
                 <div onClick={changeCondition} className={`${style.profile_moreInfo}`}>
-                    <div  className="d-flex justify-content-center align-items-center">
-                        {additionalInformation?'Скрыть допольнительную информацию':'Показать подробную информацию'}
+                    <div className="d-flex justify-content-center align-items-center">
+                        {additionalInformation ?
+                            'Скрыть допольнительную информацию'
+                            : 'Показать подробную информацию'}
                     </div>
                 </div>
-                {additionalInformation?
-                <div>LOREEEEEEEEEEEMMMMMMMMMM 
-                    LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM LOREEEEEEEEEEEMMMMMMMMMM 
-                </div>
-                : null}
+                {additionalInformation ?
+                    <div>
+                        {/* Подробная информация */}
+                        {/* Основная информация */}
+                        <div onMouseMove={(e) =>setEditBtnVisability({...editBtnVisability, main:true})}
+                        onMouseOut={(e) => setEditBtnVisability({...editBtnVisability, main:false})} className={style.additionalInfo_block}>
+                            <div className={style.additionalInfo_header}>
+                                <span>Основная информация</span>
+                                {editBtnVisability.main?<NavLink to="/edit">Редактировать</NavLink>:null}
+                            </div>
+                            <div className={style.profile_info_row}>
+                                <div className={style.profile_info_item}>День Рождения:</div>
+                                <div className={style.profile_info_data}>8 июня</div>
+                            </div>
+                            <div className={style.profile_info_row}>
+                                <div className={style.profile_info_item}>Город:</div>
+                                <div className={style.profile_info_data}>Минск</div>
+                            </div>
+                        </div>
+                        {/* Окончание основной информации */}
+                        {/* Контактная информация */}
+                        <div onMouseMove={(e) =>setEditBtnVisability({...editBtnVisability, contact:true})}
+                        onMouseOut={(e) => setEditBtnVisability({...editBtnVisability, contact:false})} className={style.additionalInfo_block}>
+                            <div className={style.additionalInfo_header}>
+                                <span>Контактная информация</span>
+                                {editBtnVisability.contact?<NavLink to="/edit">Редактировать</NavLink>:null}
+                            </div>
+                            <div className={style.profile_info_row}>
+                                <div className={style.profile_info_item}>День Рождения:</div>
+                                <div className={style.profile_info_data}>8 июня</div>
+                            </div>
+                            <div className={style.profile_info_row}>
+                                <div className={style.profile_info_item}>Город:</div>
+                                <div className={style.profile_info_data}>Минск</div>
+                            </div>
+                        </div>
+                        {/* Окончание контактной информации */}
+                        {/* Жизненная позиция */}
+                        <div onMouseMove={(e) =>setEditBtnVisability({...editBtnVisability, lifePosition:true})}
+                        onMouseOut={(e) => setEditBtnVisability({...editBtnVisability, lifePosition:false})} className={style.additionalInfo_block}>
+                            <div className={style.additionalInfo_header}>
+                                <span>Жизненная позиция</span>
+                                {editBtnVisability.lifePosition?<NavLink to="/edit">Редактировать</NavLink>:null}
+                            </div>
+                            <div className={style.profile_info_row}>
+                                <div className={style.profile_info_item}>День Рождения:</div>
+                                <div className={style.profile_info_data}>8 июня</div>
+                            </div>
+                            <div className={style.profile_info_row}>
+                                <div className={style.profile_info_item}>Город:</div>
+                                <div className={style.profile_info_data}>Минск</div>
+                            </div>
+                        </div>
+                        {/* Окончание жизненной позиции */}
+                        {/* Личная информация */}
+                        <div onMouseMove={(e) =>setEditBtnVisability({...editBtnVisability, personalInformation:true})}
+                        onMouseOut={(e) => setEditBtnVisability({...editBtnVisability, personalInformation:false})} className={style.additionalInfo_block}>
+                            <div className={style.additionalInfo_header}>
+                                <span>Личная информация</span>
+                                {editBtnVisability.personalInformation?<NavLink to="/edit">Редактировать</NavLink>:null}
+                            </div>
+                            <div className={style.profile_info_row}>
+                                <div className={style.profile_info_item}>День Рождения:</div>
+                                <div className={style.profile_info_data}>8 июня</div>
+                            </div>
+                            <div className={style.profile_info_row}>
+                                <div className={style.profile_info_item}>Город:</div>
+                                <div className={style.profile_info_data}>Минск</div>
+                            </div>
+                        </div>
+                        {/* Окончание личной информации */}
+                    </div>
+                    : null}
                 <div className={style.separator}></div>
                 <ul className={`${style.counts_module} d-flex justify-content-around`}>
                     <li>
@@ -72,7 +146,6 @@ let ProfileInfo = (props) => {
                     </li>
                 </ul>
             </div>
-        {/* </div> */}
         </>
     )
 }

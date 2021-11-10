@@ -52,6 +52,7 @@
 }
 .profile_info_row {
     padding-top: 5px;
+    display: flex;
 }
 .profile_info_item {
     color: #818C99;
@@ -102,3 +103,28 @@
     line-height: 15px;
 }
 /* END ABOUT ME */
+/* ADDITIONAL INFO BLOCKS */
+.additionalInfo_block {
+    padding: 0 0 29px;
+    border-top: 1px solid #DCE1E6;
+}
+.additionalInfo_header {
+    display: flex;
+    justify-content: space-between;
+    margin: -11px 0 4px;
+}
+.additionalInfo_header span {
+    background: #fff;
+    padding: 0 7px 4px 0;
+    font-size: 13px;
+    color: #000;
+}
+.additionalInfo_header a {
+    padding: 0 0 4px 7px;
+    background: #fff;
+    color: rgb(129, 140, 153);
+    font-size: 13px;
+}
+.additionalInfo_header a:hover {
+    text-decoration: underline;
+}

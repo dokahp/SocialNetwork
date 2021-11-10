@@ -31,7 +31,11 @@ let addMessage = (state, profileId) => {
     // Изменение последнего сообщения и его даты на странице диалогов
     state.dialogs = state.dialogs.map((el) => {
         if (el.profileId === profileId) {
-            return { ...el, 'text': state.messages.newMessageText, 'date': `${new Date().getDate()} ${MONTH[new Date().getMonth()]}` }
+            return {
+                ...el,
+                'text': state.messages.newMessageText,
+                'date': `${new Date().getDate()} ${MONTH[new Date().getMonth()]}`
+            }
         }
         return el
     })
@@ -60,7 +64,6 @@ const messagesReducer = (state = initialState, action) => {
             return JSON.parse(JSON.stringify(state));
         default:
             return state;
-
     }
 }
 
