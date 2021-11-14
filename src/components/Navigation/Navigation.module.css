@@ -17,7 +17,7 @@ li {
     height: 28px;
     border-radius: 4px;
 }
-li:hover {
+nav li:hover {
     background: rgba(174, 183,194, 0.12);
 }
 li img {
