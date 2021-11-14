@@ -1,9 +1,8 @@
-import MyFriendsWidget from './MyFriendsWidget/MyFriendsWidget';
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import style from './Profile.module.css';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import { NavLink } from 'react-router-dom';
-import store from '../../redux/redux-store';
+import MyFriendsWidgetContainer from './MyFriendsWidget/MyFriendsWidgetContainer';
 
 
 
@@ -16,7 +15,7 @@ let Profile = (props) => {
                         <img src='img/Profile/profileImg.jpg' alt="profile" />
                         <NavLink to="#">Редактировать</NavLink>
                     </div>
-                    <MyFriendsWidget friends={store.getState().friendsPage.allFriends} />
+                    <MyFriendsWidgetContainer/>
                 </div>
                 <div className={`col-9 ${style.nopadding}`} >
                     <div className={`${style.myPost}`}>
