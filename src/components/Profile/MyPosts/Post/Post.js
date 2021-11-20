@@ -1,5 +1,6 @@
 import style from './Post.module.css';
 import React from 'react';
+import renderHTML from 'react-render-html'
 
 
 
@@ -15,7 +16,7 @@ let Post = (props) => {
                 </div>
             </div>
             <div className={style.post_text}>
-                {props.text}
+                {renderHTML(props.text)}
             </div>
             <div className={`${style.post_buttons} d-flex`}>
                 <div className={`${style.post_buttons_like} d-flex align-items-center`}>

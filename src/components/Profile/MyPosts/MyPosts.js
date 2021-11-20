@@ -4,7 +4,6 @@ import React from 'react';
 
 let MyPosts = (props) => {
     let post = props.posts.map(el => <Post key={el.id} text={el.text} like={el.like} date={el.date} />)
-
     let newPostText = React.createRef();
     let addNewPost = () => {
         return props.handleAddNewPost()
