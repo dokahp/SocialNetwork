@@ -9,18 +9,18 @@
 nav a {
     text-decoration: none;
 }
-ul {
+.listNav {
     list-style-type: none;
     padding-left: 0;
 }
-li {
+.listNav li {
     height: 28px;
     border-radius: 4px;
 }
 nav li:hover {
     background: rgba(174, 183,194, 0.12);
 }
-li img {
+.listNav li img {
     margin-right: 7px;
     opacity: 0.45;
 }

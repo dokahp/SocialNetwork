@@ -1,5 +1,5 @@
 import style from './Header.module.css';
-import CurrentWeather from './Weather/CurrentWeather';
+import CurrentWeather from './CurrentWeather/CurrentWeather';
 
 let Header = () => {
     return (

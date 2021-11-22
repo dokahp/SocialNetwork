@@ -14,7 +14,7 @@
 .navActive {
     border-bottom: 2px solid #5181B8;
 }
-span {
+.allFriendsCount {
     color: #939393;
     font-size: 13px;
     padding-left: 6px;

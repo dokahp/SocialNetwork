@@ -5,7 +5,7 @@ import style from './Navigation.module.css';
 let Navigation = () => {
     return (
         <nav className="col-2 mt-3">
-            <ul>
+            <ul className={style.listNav}>
                 <NavLink to="/">
                     <li className="d-flex justify-content-between align-items-center">
                         <div className="d-flex align-items-center">

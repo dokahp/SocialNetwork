@@ -16,7 +16,7 @@ let MyFriends = (props) => {
             <div className="row">
                 <div className={`${style.nav} d-flex align-items-center`}>
                     <NavLink to='/friends'>
-                        <div className={`${style.navLink} ${style.navActive}`}>Все друзья <span>{props.allFriends.length}</span></div>
+                        <div className={`${style.navLink} ${style.navActive}`}>Все друзья <span className={style.allFriendsCount}>{props.allFriends.length}</span></div>
                     </NavLink>
                     <NavLink to='/onlinefriends'>
                         <div className={style.navLink}>Друзья онлайн</div>

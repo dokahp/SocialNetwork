@@ -13,6 +13,7 @@
 }
 .friendsCount {
     color: #939393;
+    margin-left: 6px;
 }
 .allFriends{
     display: grid;

@@ -1,0 +1,72 @@
+.wrapper {
+  background: #fff;
+  font-family: 'Open Sans',Arial,Helvetica,Verdana,sans-serif;
+  border-radius: 4px;
+}
+.todayWrapper {
+    width: fit-content;
+}    
+.dayHeader {
+    padding-top: 12px;
+    padding-bottom: 36px;
+}
+.dayFontH2 {
+  font-family: "Open Sans Condensed", FranklinM, Arial, Helvetica, Verdana, sans-serif;
+  font-size: 21px;
+  color: rgb(51, 51, 51);
+  font-weight: 400;
+  padding: 0 0 5px;
+  margin: 0;
+  text-align: left;
+}
+.dateSpan {
+    font-size: 13px;
+    color: #999;
+    text-align: left;
+}
+.todayTimeWeather {
+    list-style-type: none;
+    padding-left: 0;
+}
+.todayTimeWeather li {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    color: rgb(51, 51, 51);
+    padding-bottom: 20px;
+}
+.dt {
+    width: 64px;
+}
+.todayTime {
+    padding: 0 0 6px;
+    font: 13px 'Open Sans Condensed', FranklinM, Arial, Helvetica, Verdana, sans-serif;
+    font-weight: 400;
+}
+.todayTemp {
+    font: 22px 'Open Sans', FranklinM, Arial, Helvetica, Verdana, sans-serif;
+    font-weight: 700;
+}
+.currentHeader {
+    font-size: 61px;
+}
+.currentTemp {
+    color: rgb(51, 51, 51);
+    font-size: 182px;
+    font-weight: 700;
+}
+.currentImg {
+    height: 330px;
+    width: 330px;
+}
+.otherImg {
+    height: 64px;
+    width: 64px;
+}
+.currentWrapper {
+    width: fit-content;
+}
+.largeIMG {
+    background-image: url("https://pogoda.onliner.by/assets/A10@2x.png");
+    background-size: 330px auto;
+}

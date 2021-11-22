@@ -8,6 +8,7 @@ import DialogsContainer from './components/Dialogs/DialogsContainer';
 import { Route } from 'react-router-dom';
 import MyFriendsContainer from './components/MyFriends/MyFriendsContainer';
 import MessagesContainer from './components/Dialogs/Messages/MessagesContainer';
+import Weather from './components/Weather/Weather';
 
 let App = (props) => {
     return (
@@ -21,6 +22,7 @@ let App = (props) => {
                 <Route render={() => <DialogsContainer />} exact path="/dialogs" />
                 <Route render={() => <MyFriendsContainer />} path="/friends" />
                 <Route render={() => <MessagesContainer/>} exact path="/dialogs/96381471"/>
+                <Route render={() => <Weather />} exact path="/weather" />
             </div>
             <footer></footer>
         </div>
