@@ -1,0 +1,15 @@
+.currentWrapper {
+    width: fit-content;
+}
+.currentHeader {
+    font-size: 61px;
+}
+.currentTemp {
+    color: rgb(51, 51, 51);
+    font-size: 182px;
+    font-weight: 700;
+}
+.currentImg {
+    height: 330px;
+    width: 330px;
+}

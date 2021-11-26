@@ -1,86 +1,66 @@
 import style from "./Weather.module.css";
+import TodayWeather from "./TodayWeather/TodayWeather";
+import WeatherNow from "./WeatherNow/WeatherNow";
+import Forecast4Days from "./Forecast4Days/Forecast4Days";
+
+const currentDate = new Date();
+export const MONTH = [
+  "января",
+  "февраля",
+  "марта",
+  "апреля",
+  "мая",
+  "июня",
+  "июля",
+  "августа",
+  "сентября",
+  "октября",
+  "ноября",
+  "декабря",
+];
 
 let Weather = (props) => {
+  let today = props.weather.list.filter(
+    (el) => new Date().getDate() === new Date(el.dt_txt).getDate()
+  );
+  let forecast = [];
+  for (let i = 1; i < 5; i++) {
+    forecast.push(props.weather.list.slice(8 * i, (8 * i) + 8))
+  }
   return (
     <main className={`${style.wrapper} col-10 mt-3`}>
-      <div className="row">
-        {/* TODAY */}
-        <div className={style.todayWrapper}>
-          <div className={style.dayHeader}>
-            <h2 className={style.dayFontH2}>Сегодня</h2>
-            <span className={style.dateSpan}>21 ноября</span>
-          </div>
+      <div className="row justify-content-center">
+        {/* Weather NOW */}
+        <WeatherNow currentWeather={props.currentWeather} />
+        {/* END OF Weather NOW */}
+      </div>
+      {/* TODAY */}
+      <div className={style.todayWrapper}>
+        <div className={style.todayForecast}>
+          <h3>
+            Сегодня {currentDate.getDate()} {MONTH[currentDate.getMonth()]}{" "}
+          </h3>
           <ul className={style.todayTimeWeather}>
-            <li>
-              <div className={style.dt}>
-                <div className={style.todayTime}>утром</div>
-                <div className={style.todayTemp}>+7˚</div>
-              </div>
-              <img
-                className={style.otherImg}
-                src={`img/Weather/01d.svg`}
-                alt={`cloud`}
+            {today.map((el) => (
+              <TodayWeather
+                key={el.dt}
+                date={el.dt_txt}
+                temp={Math.round(el.main.temp)}
+                icon={el.weather[0].icon}
+                description={el.weather[0].description}
               />
-            </li>
-            <li>
-              <div className={style.dt}>
-                <div className={style.todayTime}>днем</div>
-                <div className={style.todayTemp}>+6˚</div>
-              </div>
-              <img
-                className={style.otherImg}
-                src={`img/Weather/10d.svg`}
-                alt={`cloud`}
-              />
-            </li>
-            <li>
-              <div className={style.dt}>
-                <div className={style.todayTime}>вечером</div>
-                <div className={style.todayTemp}>+4˚</div>
-              </div>
-              <img
-                className={style.otherImg}
-                src={`img/Weather/10n.svg`}
-                alt={`cloud`}
-              />
-            </li>
-            <li>
-              <div className={style.dt}>
-                <div className={style.todayTime}>ночью</div>
-                <div className={style.todayTemp}>+1˚</div>
-              </div>
-              <img
-                className={style.otherImg}
-                src={`img/Weather/02n.svg`}
-                alt={`cloud`}
-              />
-            </li>
+            ))}
           </ul>
         </div>
-        {/* END TODAY */}
-        {/* CURRENT */}
-        <div className={style.currentWrapper}>
-          <h1 className={style.currentHeader}>Сейчас в Минске</h1>
-          <div className="d-flex justify-content-center align-items-center">
-            <img
-              className={style.currentImg}
-              src={`img/Weather/13n.svg`}
-              alt={`cloud`}
-            />
-
-            <div>
-              <span className={style.currentTemp}>+6˚</span>
-              <br></br>
-              <span>
-                Сплошная облачность <br></br>
-                Ветер западный 3 м/с <br></br>
-                Давление 754 мм рт. ст.
-              </span>
-            </div>
-          </div>
-        </div>
-        {/* END OF CURRENT */}
       </div>
+      {/* END OF TODAY */}
+      {/* 4 DAYS FORECAST */}
+      <div className="row">
+        <ul className={style.ul}>
+            {forecast.map((el, i )=> <Forecast4Days key={i} forecast={el} />)}
+        </ul>
+      </div>
+      {/* END OF 4 DAYS FORECAST */}
     </main>
   );
 };
